@@ -1,88 +1,62 @@
-<?php 
-ob_start();
-include 'header.php';
-if($customer){
-    header('location: index.php');
-}
-$errors = [];
-if(isset($_POST['email'])){
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+<!DOCTYPE html>
+<html lang="en">
 
-    if($email == ''){
-        $errors['email'] = 'Email không được để trống';
-    }else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-        $errors['email'] = 'Email không đúng định dạng';
-    }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-    if($password == ''){
-        $errors['password'] = 'Mật khẩu không được để trống';
-    }else if(strlen($password) < 4){
-        $errors['password'] = 'Mật khẩu tối thiểu 4 ký tự';
-    }
-    
-    if(!$errors){
-        $sql = "SELECT * FROM customer WHERE email = '$email'";
-        $query = $conn->query($sql);
-        if($query->num_rows == 1){
-            $customer = $query->fetch_object();
-            if(password_verify($password, $customer->password)){
-                $_SESSION['cur_login'] = $customer;
-                header('location: index.php');
-            }
-            else{
-                $errors['failed'] = 'Mật khẩu không chính xác';
-            }
-        }else{
-            $errors['failed'] = 'Tài khoản hoặc mật khẩu không chính xác';
-        }
-    }
-}
-?>
+    <script src="https://kit.fontawesome.com/533aad8d01.js" crossorigin="anonymous"></script>
+</head>
 
-<!-- book section -->
-<section class="book_section layout_padding">
-    <div class="container">
-        <div class="heading_container">
-            <h2>
-                Login
-            </h2>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <?php if($errors):?>
-                <div class="alert alert-danger">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <?php foreach($errors as $error) : ?>
-                    <li><?php echo $error?></li>
-                    <?php endforeach;?>
-                </div>
-                <?php endif;?>
-                <div class="form_container">
-                    <form action="" method="POST">
+<body>
+
+    <section class="login-fastLearn">
+        <div class="container">
+            <div class="inner-wrap">
+                <img src="./images/fastlearn-removebg-preview.png" alt="">
+                <h1>Đăng ký tài khoản tại FastLearn</h1>
+
+                <form action="" method="POST" role="form">
+                    <div class="form-group">
+
                         <div>
-                            <input type="email" class="form-control" placeholder="Your Email" name="email" />
+                            <input type="text" id="" placeholder="Nhập số điện thoại">
                         </div>
                         <div>
-                            <input type="password" name="password" class="form-control" placeholder="Your Password" />
+                            <input type="password" id="" placeholder="Mật khẩu">
                         </div>
-                        <div class="btn_box">
-                            <button>
-                                Login now
-                            </button>
-                        </div>
-                    </form>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Đăng Nhập</button>
+                </form>
+                <p>Hoặc</p>
+                <div class="login-fastLearn__link">
+                    <a href="">
+                        <img src="./images/google.png" alt="">
+                    </a>
+                    <a href="">
+                        <img src="./images/facebook.png" alt="">
+                    </a>
+                    <a href="">
+                        <img src="./images/github.png" alt="">
+                    </a>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <img width="100%"
-                    src="https://www.vib.com.vn/wps/wcm/connect/07bafcaa-77ec-42f6-b36b-dc61ebedad11/token.png.webp?MOD=AJPERES&CACHEID=ROOTWORKSPACE-07bafcaa-77ec-42f6-b36b-dc61ebedad11-oKoX88E"
-                    alt="">
+                <p>Bạn đã có tài khoản? <a href="register.php">Đăng ký</a></p>
+                <p>Việc bạn sử dụng trang web cũng đồng nghĩa việc bạn đồng ý
+                    với điều khoản dịch vụ của chúng tôi.</p>
             </div>
         </div>
-    </div>
-</section>
-<!-- end book section -->
+    </section>
 
-<!-- footer section -->
-<?php include 'footer.php'?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

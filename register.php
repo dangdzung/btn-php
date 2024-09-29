@@ -1,129 +1,66 @@
-<?php 
-ob_start();
-include 'header.php';
-$errors = [];
-if(isset($_POST['name'])){
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $address = $_POST['address'];
-    $password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
-    if($name == ''){
-        $errors['name'] = 'Họ tên không được để trống';
-    }else if(strlen($name) < 3){
-        $errors['name'] = 'Họ tên tối thiểu 3 ký tự';
-    }
-    if($phone == ''){
-        $errors['phone'] = 'Số điện thoại không được để trống';
-    }else if(strlen($phone) < 10){
-        $errors['phone'] = 'Số điện thoại tối thiểu 10 ký tự';
-    }
-    else{
-        $sqlCheckP = "SELECT email from customer where phone = '$phone' AND id != {$customer->id}";
-        $queryCheckP = $conn->query($sqlCheckP);
-        if($queryCheckP->num_rows > 0){
-            $errors['phone'] = 'Số điện thoại này đã được đăng ký, thử số điện thoại khác'; 
-        }  
-    }
-    if($email == ''){
-        $errors['email'] = 'Email không được để trống';
-    }else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-        $errors['email'] = 'Email không đúng định dạng';
-   }
-    else{
-        $sqlCheck = "SELECT email from customer where email = '$email' AND id != {$customer->id}";
-        $queryCheck = $conn->query($sqlCheck);
-        if($queryCheck->num_rows>0){
-            $errors['email'] = 'Email này đã được đăng ký, thử email khác'; 
-        }  
-    }
-    if($address == ''){
-        $errors['address'] = 'Địa chỉ nơi ở không được để trống';
-    }else if(strlen($address) < 10){
-        $errors['address'] = 'Địa chỉ tối thiểu 10 ký tự';
-    }
-    if($password == ''){
-        $errors['password'] = 'Mật khẩu không được để trống';
-    }else if(strlen($password) < 4){
-        $errors['password'] = 'Mật khẩu tối thiểu 4 ký tự';
-    }
-    
-    if($confirm_password == ''){
-        $errors['confirm_password'] = 'Mật khẩu không được để trống';
-    }else if($confirm_password!=$password){
-        $errors['confirm_password'] = 'Xác nhận mật khẩu không chính xác,hãy nhập lại';
-    }
-    
-    if(!$errors){
-        $pass_hash = password_hash($password,PASSWORD_DEFAULT);
-        $sql = "INSERT INTO customer(name, email, phone, address, password) VALUES ('$name','$email','$phone','$address','$pass_hash')";
-        if($conn->query($sql)){
-            header('location: login.php');
-        }else{
-            $errors['failed'] = 'Đăng ký không thành công vui lòng thử lại';
-        }
-    }
-}
-?>
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- book section -->
-<section class="book_section layout_padding">
-    <div class="container">
-        <div class="heading_container">
-            <h2>
-                Register Account
-            </h2>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <?php if($errors) : ?>
-                <div class="alert alert-danger">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <?php foreach($errors as $error) : ?>
-                    <li><?php echo $error?></li>
-                    <?php endforeach;?>
-                </div>
-                <?php endif;?>
-                <div class="form_container">
-                    <form action="" method="POST">
-                        <div>
-                            <input type="text" name="name" class=" form-control" placeholder="Your Name" />
-                        </div>
-                        <div>
-                            <input type="text" name="phone" class="form-control" placeholder="Phone Number" />
-                        </div>
-                        <div>
-                            <input type="email" name="email" class="form-control" placeholder="Your Email" />
-                        </div>
-                        <div>
-                            <input name="address" class="form-control" placeholder="Your Address" />
-                        </div>
-                        <div>
-                            <input type="password" name="password" class="form-control" placeholder="Your Password" />
-                        </div>
-                        <div>
-                            <input type="password" class="form-control" placeholder="Confirm Password"
-                                name="confirm_password" />
-                        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-                        <div class="btn_box">
-                            <button>
-                                Register Now
-                            </button>
+    <script src="https://kit.fontawesome.com/533aad8d01.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <section class="login-fastLearn">
+        <div class="container">
+            <div class="inner-wrap">
+                <img src="./images/fastlearn-removebg-preview.png" alt="">
+                <h1>Đăng ký tài khoản tại FastLearn</h1>
+
+                <form action="" method="POST" role="form">
+                    <div class="form-group">
+                        <div>
+                            <input type="text" id="" placeholder="Họ tên">
                         </div>
-                    </form>
+                        <div>
+                            <input type="text" id="" placeholder="Nhập số điện thoại">
+                        </div>
+                        <div>
+                            <input type="password" id="" placeholder="Mật khẩu">
+                        </div>
+                        <div>
+                            <input type="password" id="" placeholder="Nhập lại mật khẩu">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Đăng ký</button>
+                </form>
+                <p>Hoặc</p>
+                <div class="login-fastLearn__link">
+                    <a href="">
+                        <img src="./images/google.png" alt="">
+                    </a>
+                    <a href="">
+                        <img src="./images/facebook.png" alt="">
+                    </a>
+                    <a href="">
+                        <img src="./images/github.png" alt="">
+                    </a>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <img width="100%"
-                    src="https://www.vib.com.vn/wps/wcm/connect/07bafcaa-77ec-42f6-b36b-dc61ebedad11/token.png.webp?MOD=AJPERES&CACHEID=ROOTWORKSPACE-07bafcaa-77ec-42f6-b36b-dc61ebedad11-oKoX88E"
-                    alt="">
+                <p>Bạn đã có tài khoản? <a href="login.php">Đăng nhập</a></p>
+                <p>Việc bạn sử dụng trang web cũng đồng nghĩa việc bạn đồng ý
+                    với điều khoản dịch vụ của chúng tôi.</p>
             </div>
         </div>
-    </div>
-</section>
-<!-- end book section -->
+    </section>
 
-<!-- footer section -->
-<?php include'footer.php'?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
