@@ -239,6 +239,66 @@ function showTab(tabId) {
     });
     event.target.classList.add('active');
 }
+// Mở form thêm/sửa bài đăng
+function openPostForm() {
+    document.getElementById("postForm").style.display = "block";
+    document.getElementById("formTitle").innerText =
+        "Thêm bài đăng mới";
+    document.getElementById("postTitle").value = "";
+    document.getElementById("postContent").value = "";
+}
+
+// Đóng form
+function closePostForm() {
+    document.getElementById("postForm").style.display = "none";
+}
+
+// Lưu bài đăng (tạo mới hoặc chỉnh sửa)
+function savePost() {
+    var postTitle = document.getElementById("postTitle").value;
+    var postContent = document.getElementById("postContent").value;
+
+    if (postTitle.trim() === "" || postContent.trim() === "") {
+        alert("Vui lòng nhập đầy đủ tiêu đề và nội dung.");
+        return;
+    }
+
+    // Giả sử lưu thành công
+    var responseMessage =
+        document.getElementById("responseMessage");
+    responseMessage.innerHTML = "Bài đăng đã được lưu thành công!";
+    responseMessage.style.display = "block";
+
+    // Ẩn form sau khi lưu
+    closePostForm();
+}
+
+// Chỉnh sửa bài đăng
+function editPost(button) {
+    var row = button.parentElement.parentElement;
+    var postTitle = row.cells[0].textContent;
+
+    // Điền thông tin vào form và mở form
+    document.getElementById("postTitle").value = postTitle;
+    document.getElementById("postContent").value =
+        "Nội dung của " + postTitle;
+    document.getElementById("formTitle").innerText =
+        "Chỉnh sửa bài đăng";
+    document.getElementById("postForm").style.display = "block";
+}
+
+// Xóa bài đăng
+function deletePost(button) {
+    if (confirm("Bạn có chắc chắn muốn xóa bài đăng này không?")) {
+        var row = button.parentElement.parentElement;
+        row.remove();
+
+        var responseMessage =
+            document.getElementById("responseMessage");
+        responseMessage.innerHTML = "Bài đăng đã được xóa.";
+        responseMessage.style.display = "block";
+    }
+}
 </script>
 </body>
 

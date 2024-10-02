@@ -1081,11 +1081,8 @@ a {
     object-fit: cover;
 }
 
-.header .header-form {
-    margin-left: 200px;
-}
 .header .btn-register {
-    width: 150px;
+    width: 103px;
     background-color: #fff;
     border-radius: 20px;
     /* height: 50px; */
@@ -2584,4 +2581,182 @@ a {
     width: 40px;
     height: 40px;
     margin: 10px;
+}
+.dropdown-teacher {
+    padding: 0;
+    border: 1px solid;
+}
+/* .dropdown-teacher li {
+    display: flex;
+    width: 50%;
+    border-right: 1px solid black;
+    padding: 8px;
+    align-items: center;
+}
+
+.dropdown-teacher li i {
+    position: absolute;
+    right: 51%;
+} */
+.dropdown-teacher li a:hover {
+    background-color: inherit;
+}
+li {
+    list-style: none;
+}
+
+.dropdown-teacher__1 {
+    display: flex;
+    padding: 0;
+    align-items: center;
+}
+.dropdown-teacher__1 li {
+    padding: 15px 0;
+}
+.dropdown-teacher__1 li i {
+    padding-right: 14px;
+}
+.dropdown-teacher__1 li a {
+    padding: 0 15px;
+}
+.dropdown-teacher__1 li:nth-of-type(2) {
+    border-right: 1px solid;
+}
+
+.chitietbaihoc .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0b3086;
+    padding: 10px;
+    color: white;
+}
+
+.chitietbaihoc .header .logo img {
+    height: 50px;
+}
+
+.chitietbaihoc .header .search-bar input {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.chitietbaihoc .header .notification {
+    display: flex;
+    align-items: center;
+}
+
+.chitietbaihoc .header .notification p {
+    margin-right: 10px;
+}
+
+.chitietbaihoc .header .notification img {
+    height: 20px;
+}
+
+.chitietbaihoc .main-content {
+    display: flex;
+}
+
+.chitietbaihoc .sidebar {
+    width: 25%;
+    background-color: #e8effd;
+    padding: 20px;
+}
+
+.chitietbaihoc .sidebar .chapter {
+    margin-bottom: 20px;
+}
+
+.chitietbaihoc .sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.chitietbaihoc .lesson-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.chitietbaihoc .lesson-list li {
+    margin-bottom: 8px;
+}
+
+.chitietbaihoc .lesson-list li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    display: block;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.chitietbaihoc .lesson-list li a.active {
+    background-color: #0b3086;
+    color: white;
+}
+
+.chitietbaihoc .content {
+    width: 75%;
+    padding: 20px;
+    background-color: white;
+}
+
+.chitietbaihoc .content h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.chitietbaihoc .section {
+    margin-bottom: 20px;
+}
+
+.chitietbaihoc .section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.chitietbaihoc .section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.chitietbaihoc .section p {
+    margin-top: 10px;
+}
+
+.chitietbaihoc .section a {
+    color: #0b3086;
+    text-decoration: none;
+}
+
+.chitietbaihoc .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.chitietbaihoc .buttons button {
+    background-color: #0b3086;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.chitietbaihoc .buttons button:hover {
+    background-color: #0842ac;
+}
+.chitietbaihoc .lesson-list.collapsed {
+    display: none;
+}
+
+.chitietbaihoc .chapter h2 {
+    cursor: pointer;
+    user-select: none;
+}
+
+.chitietbaihoc .chapter h2:hover {
+    color: #0842ac;
 }

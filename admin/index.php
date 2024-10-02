@@ -35,34 +35,70 @@
         </div>
 
         <!-- Posts Management -->
-        <div class="row mt-5 ">
-            <div class="col-md-12 d-flex justify-content-between">
-                <h5>Bài viết</h5>
-                <button class="btn btn-primary">Tạo bài viết</button>
-                <div class="index-input"><i class="fa-solid fa-magnifying-glass"></i><input type="text" name=""
-                        placeholder="Tìm kiếm"></div>
+        <div class="admin-main-content">
+            <h1>Quản lý Bài đăng</h1>
+
+            <!-- Nút thêm bài đăng mới -->
+            <button class="add-post-button" onclick="openPostForm()">
+                Thêm bài đăng mới
+            </button>
+
+            <!-- Bảng danh sách bài đăng -->
+            <table class="posts-table">
+                <thead>
+                    <tr>
+                        <th>Tiêu đề</th>
+                        <th>Tác giả</th>
+                        <th>Nội dung</th>
+                        <th>Ngày đăng</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="postList">
+                    <tr>
+                        <td>Bài đăng 1</td>
+                        <td>Admin</td>
+                        <td>Nội dung của bài đăng 1</td>
+                        <td>28/09/2024</td>
+                        <td>
+                            <button onclick="editPost(this)">Sửa</button>
+                            <button onclick="deletePost(this)">Xóa</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bài đăng 2</td>
+                        <td>Admin</td>
+                        <td>Nội dung của bài đăng 2</td>
+                        <td>29/09/2024</td>
+                        <td>
+                            <button onclick="editPost(this)">Sửa</button>
+                            <button onclick="deletePost(this)">Xóa</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Form thêm/sửa bài đăng -->
+            <div id="postForm" style="display: none">
+                <h2 id="formTitle">Thêm bài đăng mới</h2>
+                <form>
+                    <label for="postTitle">Tiêu đề bài đăng:</label>
+                    <input type="text" id="postTitle" name="postTitle"
+                        placeholder="Nhập tiêu đề bài đăng" /><br /><br />
+
+                    <label for="postContent">Nội dung bài đăng:</label><br />
+                    <textarea id="postContent" rows="6" cols="50"
+                        placeholder="Nhập nội dung bài đăng"></textarea><br /><br />
+
+                    <button type="button" onclick="savePost()">
+                        Lưu bài đăng
+                    </button>
+                    <button type="button" onclick="closePostForm()">Hủy</button>
+                </form>
             </div>
 
-            <!-- Posts Table -->
-            <div class="table-responsive mt-3">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Tiêu đề</th>
-                            <th>Người đăng</th>
-                            <th>Thời gian</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Xin chào</td>
-                            <td>Admin</td>
-                            <td>15h30 ngày 23/09/2012</td>
-                        </tr>
-                        <!-- Thêm các bài viết khác tại đây -->
-                    </tbody>
-                </table>
-            </div>
+            <!-- Thông báo -->
+            <p id="responseMessage" style="display: none"></p>
         </div>
     </div>
 </div>

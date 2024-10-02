@@ -29,14 +29,32 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="chuongTrinhHocDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Chương trình học
+                                Về chúng tôi
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="chuongTrinhHocDropdown">
                                 <li>
-                                    <a class="dropdown-item" href="#">Chương trình cử nhân</a>
+                                    <a class="dropdown-item" href="#">Chương trình cử </a>
                                     <ul class="dropdown-menu header-dropdown">
                                         <li><a class="dropdown-item" href="#">Cử nhân Kinh tế</a></li>
                                         <li><a class="dropdown-item" href="#">Cử nhân Công nghệ</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Chương trình thạc sĩ</a>
+                                    <ul class="dropdown-menu header-dropdown">
+                                        <li><a class="dropdown-item" href="#">Thạc sĩ Quản trị kinh doanh</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Chương trình thạc sĩ</a>
+                                    <ul class="dropdown-menu header-dropdown">
+                                        <li><a class="dropdown-item" href="#">Thạc sĩ Quản trị kinh doanh</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Chương trình thạc sĩ</a>
+                                    <ul class="dropdown-menu header-dropdown">
+                                        <li><a class="dropdown-item" href="#">Thạc sĩ Quản trị kinh doanh</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -52,23 +70,54 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="giangVienDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Giảng viên
+                                Ngành học
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="giangVienDropdown">
+                            <ul class="dropdown-menu dropdown-teacher" aria-labelledby="giangVienDropdown"
+                                style="padding: 0;">
                                 <li>
-                                    <a class="dropdown-item" href="#">Giảng viên khoa Kinh tế</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Thạc sĩ Nguyễn Văn A</a></li>
-                                        <li><a class="dropdown-item" href="#">Tiến sĩ Trần Thị B</a></li>
+                                    <ul class="dropdown-teacher__1">
+                                        <li><a class="dropdown-item" href="#">Khoa học công nghệ </a></li>
+                                        <li><i class="fa-solid fa-chevron-right"></i></li>
+                                        <li><a class="dropdown-item" href="#">Công
+                                                nghệ thông tin</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">Giảng viên khoa Công nghệ</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Tiến sĩ Lê Văn C</a></li>
+                                    <ul class="dropdown-teacher__1">
+                                        <li><a class="dropdown-item" href="#">Khoa học công nghệ </a></li>
+                                        <li><i class="fa-solid fa-chevron-right"></i></li>
+                                        <li><a class="dropdown-item" href="#">Công
+                                                nghệ thông tin</a></li>
                                     </ul>
                                 </li>
+                                <li>
+                                    <ul class="dropdown-teacher__1">
+                                        <li><a class="dropdown-item" href="#">Khoa học công nghệ </a></li>
+                                        <li><i class="fa-solid fa-chevron-right"></i></li>
+                                        <li><a class="dropdown-item" href="#">Công
+                                                nghệ thông tin</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul class="dropdown-teacher__1">
+                                        <li><a class="dropdown-item" href="#">Khoa học công nghệ </a></li>
+                                        <li><i class="fa-solid fa-chevron-right"></i></li>
+                                        <li><a class="dropdown-item" href="#">Công
+                                                nghệ thông tin</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul class="dropdown-teacher__1">
+                                        <li><a class="dropdown-item" href="#">Khoa học công nghệ </a></li>
+                                        <li><i class="fa-solid fa-chevron-right"></i></li>
+                                        <li><a class="dropdown-item" href="#">Công
+                                                nghệ thông tin</a></li>
+                                    </ul>
+                                </li>
+
                             </ul>
+
+
                         </li>
                     </ul>
 
@@ -79,8 +128,10 @@
                                 class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
 
-                    <button class="btn btn-register">Đăng ký </button>
-                    <button class="btn btn-primary btn-login">Đăng nhập</button>
+                    <div class="header-button__register">
+                        <button class="btn btn-register">Đăng ký </button>
+                        <button class="btn btn-primary btn-login">Đăng nhập</button>
+                    </div>
                 </div>
             </div>
         </nav>
